@@ -12,6 +12,6 @@ class KodeControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("New Game")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Kode Board")')->count());
     }
 }
