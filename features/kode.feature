@@ -13,5 +13,5 @@ Feature: Kode
 
   Scenario: Make a move
     When I click some code tiles
-    And I press "Run"
-    Then my character will execute the code
+    And I run the program
+    Then my character should execute the code

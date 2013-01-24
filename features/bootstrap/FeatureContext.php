@@ -70,18 +70,18 @@ class FeatureContext extends MinkContext {
 	}
 
 	/**
-	 * @When /^I make a move$/
+	 * @When /^I run the program$/
 	 */
-	public function iMakeAMove() {
+	public function iRunTheProgram() {
 		return array(
 			new Step\When('I press "Run"')
 		);
 	}
 
 	/**
-	 * @Then /^my character will execute the code$/
+	 * @Then /^my character should execute the code$/
 	 */
-	public function myCharacterWillExecuteTheCode() {
+	public function myCharacterShouldExecuteTheCode() {
 		return array(
 			new Step\Then('I should see "Kode Executed"')
 		);
