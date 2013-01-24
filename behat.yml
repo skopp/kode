@@ -2,5 +2,6 @@ default:
     extensions:
         Behat\MinkExtension\Extension:
             base_url: http://kode.doma.com/app_dev.php
-            goutte: ~
-            selenium2: ~
+            default_session: zombie
+            javascript_session: zombie
+            zombie: ~

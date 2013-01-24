@@ -1,6 +1,6 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "name": "kode",
+    "description": "A game that teaches coding",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -22,9 +22,7 @@
 		"behat/behat":"2.4.*@stable",
 		"behat/mink":"1.4.*@stable",
 		"behat/mink-extension":"*",
-		"behat/mink-goutte-driver":"*",
-		"behat/mink-selenium2-driver":"*",
-		"guzzle/guzzle":"*"
+		"behat/mink-zombie-driver":"*"
 	},
     "scripts": {
         "post-install-cmd": [
