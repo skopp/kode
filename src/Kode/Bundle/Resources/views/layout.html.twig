@@ -4,19 +4,14 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Kode Game{% endblock %}</title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ asset('bundles/kode/css/demo.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/kode/css/kode.css') }}" />
     </head>
     <body>
         <div id="symfony-wrapper">
             <div id="symfony-header">
                 <a href="{{ path('_play') }}">
-                    <img src="{{ asset('bundles/kode/images/logo.gif') }}" alt="Symfony logo" />
+                    Kode Game
                 </a>
-                <form id="symfony-search" method="GET" action="http://symfony.com/search">
-                    <label for="symfony-search-field"><span>Search on Symfony Website</span></label>
-                    <input name="q" id="symfony-search-field" type="search" placeholder="Search on Symfony website" class="medium_txt" />
-                    <input type="submit" class="symfony-button-grey" value="OK" />
-                </form>
             </div>
 
             {% for flashMessage in app.session.flashbag.get('notice') %}
@@ -28,7 +23,7 @@
             {% block content_header %}
                 <ul id="menu">
                     {% block content_header_more %}
-                        <li><a href="{{ path('_demo') }}">Demo Home</a></li>
+                        <li><a href="{{ path('_play') }}">Play</a></li>
                     {% endblock %}
                 </ul>
 
@@ -40,10 +35,6 @@
                 {% endblock %}
             </div>
 
-            {% if code is defined %}
-                <h2>Code behind this page</h2>
-                <div class="symfony-content">{{ code|raw }}</div>
-            {% endif %}
         </div>
         {% block javascripts %}
             <script src="{{ asset('bundles/kode/js/jquery.js') }}"></script>
