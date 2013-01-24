@@ -4,10 +4,9 @@ php:
   - 5.4
 
 before_script:
-  - npm install -g zombie
-  - export NODE_PATH=/home/vagrant/.nvm/v0.4.12/lib/node_modules:/usr/local/lib/node_modules
-  - ls /home/vagrant/.nvm/
-  - ls /usr/local/lib/node_modules/
+  - npm install --silent -g zombie > /dev/null
+  - export NODE_PATH=/home/travis/.nvm/v0.8.14/lib/node_modules
+  - ls /home/travis/.nvm/alias/
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - composer install
 
