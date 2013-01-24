@@ -1,15 +1,38 @@
 {% extends "KodeBundle::layout.html.twig" %}
 
-{% block title "Symfony - Demos" %}
+{% block title "Kode Game" %}
 
 {% block content_header '' %}
 
 {% block content %}
 <form>
-<input type="button" value="New Game">
-<div id="kode_board">
-Kode Board
-</div>
-<input type="button" value="Run">
+	<input type="button" value="New Game">
+    <div id="kode_tiles" style="border:1px solid gray; width:200px; height:20px;">
+	<input type="button" value="Right" name="tile_right" class="tile">
+	<input type="button" value="Left" name="tile_left" class="tile">
+	<input type="button" value="Up" name="tile_up" class="tile">
+	<input type="button" value="Down" name="tile_down" class="tile">
+	</div>
+    <input type="button" value="Run" id="run_button">
+	<div id="kode_program" style="border:1px solid gray; width:200px; height:200px; float:left;"></div>
+	<div id="kode_board" style="border:1px solid gray; width:600px; height:200px; float:left;">
+	Kode Board
+	</div>
 </form>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+jQuery(document).ready(function(){
+	var $ = jQuery;
+
+	$('.tile', '#kode_tiles').click(function() {
+		$('#kode_program').append('<div class="tile">' + this.value + '</div>');
+	});
+	$('#run_button').click(function() {
+		$('#kode_board').append('<div class="tile">Kode Executed</div>');
+	});
+});
+</script>
 {% endblock %}

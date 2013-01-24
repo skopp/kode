@@ -1,7 +1,7 @@
 Feature: Kode
   To learn programming
-  As a web user
-  I want to play a game that teaches programming concepts
+  As an web user
+  I want to play an online game that teaches programming concepts
 
   Background:
     Given I have an account
@@ -11,6 +11,7 @@ Feature: Kode
     When I start a new game
     Then I should see initial game board
 
-  Scenario: Play the game
-    When I make a move
-    Then I should see "Kode Board"
+  Scenario: Make a move
+    When I click some code tiles
+    And I press "Run"
+    Then my character will execute the code

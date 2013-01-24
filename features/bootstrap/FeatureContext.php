@@ -58,6 +58,18 @@ class FeatureContext extends MinkContext {
 	}
 
 	/**
+	 * @When /^I click some code tiles$/
+	 */
+	public function iClickSomeCodeTiles() {
+		return array(
+			new Step\When('I press "Left"'),
+			new Step\When('I press "Down"'),
+			new Step\When('I press "Right"'),
+			new Step\When('I press "Up"')
+		);
+	}
+
+	/**
 	 * @When /^I make a move$/
 	 */
 	public function iMakeAMove() {
@@ -65,4 +77,12 @@ class FeatureContext extends MinkContext {
 			new Step\When('I press "Run"')
 		);
 	}
-}
+
+	/**
+	 * @Then /^my character will execute the code$/
+	 */
+	public function myCharacterWillExecuteTheCode() {
+		return array(
+			new Step\Then('I should see "Kode Executed"')
+		);
+	}}
