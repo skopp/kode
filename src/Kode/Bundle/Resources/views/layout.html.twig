@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Demo Bundle{% endblock %}</title>
+        <title>{% block title %}Kode Game{% endblock %}</title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/kode/css/demo.css') }}" />
     </head>
@@ -45,5 +45,8 @@
                 <div class="symfony-content">{{ code|raw }}</div>
             {% endif %}
         </div>
+        {% block javascripts %}
+            <script src="{{ asset('bundles/kode/js/jquery.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
