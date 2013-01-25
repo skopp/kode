@@ -8,6 +8,6 @@ before_script:
   - export NODE_PATH=/home/travis/.nvm/v0.8.14/lib/node_modules
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - composer install
-  - sudo php -t web/ -S 127.0.0.1:80 > app/logs/access.log &
+  - sudo php -t web/ -S 127.0.0.1:80 > app/logs/access.log 2>&1 &
 
 script: phpunit -c app
