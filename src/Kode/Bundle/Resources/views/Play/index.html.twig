@@ -2,23 +2,40 @@
 
 {% block title "Kode Game" %}
 
-{% block content_header '' %}
+{% block content_note %}
+<p>Place statements such as "left" and "up" into the empty numbered slots. Click "run" to have your character execute the program.</p>
+{% endblock %}
 
 {% block content %}
-<form>
-	<input type="button" value="New Game">
-    <div id="kode_tiles" style="border:1px solid gray; width:200px; height:20px;">
-	<input type="button" value="Right" name="tile_right" class="tile">
-	<input type="button" value="Left" name="tile_left" class="tile">
-	<input type="button" value="Up" name="tile_up" class="tile">
-	<input type="button" value="Down" name="tile_down" class="tile">
-	</div>
-    <input type="button" value="Run" id="run_button">
-	<div id="kode_program" style="border:1px solid gray; width:200px; height:200px; float:left;"></div>
-	<div id="kode_board" style="border:1px solid gray; width:600px; height:200px; float:left;">
-	Kode Board
-	</div>
-</form>
+    <div id="kode_tiles">
+        <table class="kode">
+            <caption>Tiles</caption>
+            <tr>
+                {% for tile in ['right', 'left', 'up', 'down'] %}
+                    <td id="tile_{{ tile }}" class="tile">{{ tile }}</td>
+                {% endfor %}
+                <td class="blank"></td>
+                <th id="action_run" class="action">run</th>
+            </tr>
+        </table>
+    </div>
+    <div id="kode_board">
+        <table class="kode">
+            <caption>Board</caption>
+            {% for r in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] %}
+                <tr>
+                    <th>{{ r }}.</th>
+                    <td class="blank"></td>
+                    {% for c in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] %}
+                        <td id="cell{{ r }}{{ c }}">
+                            {% if r == 2 and c == 3 %}<div id="start">A</div>{% endif %}
+                            {% if r == 5 and c == 7 %}<div id="end">B</div>{% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -26,11 +43,23 @@
 <script>
 jQuery(document).ready(function(){
 	var $ = jQuery;
-
+    var moves = 0;
 	$('.tile', '#kode_tiles').click(function() {
-		$('#kode_program').append('<div class="tile">' + this.value + '</div>');
+        if (moves < 10) {
+            $('th', '#kode_board').eq(moves).html(this.innerHTML);
+            ++moves;
+        }
 	});
-	$('#run_button').click(function() {
+	$('#action_run').click(function() {
+        $('th', '#kode_board').each(function (index, element) {
+            switch($(this).text()) {
+                case 'left':
+                    alert('l');
+                    break;
+                default :
+
+            }
+        });
 		$('#kode_board').append('<div class="tile">Kode Executed</div>');
 	});
 });
