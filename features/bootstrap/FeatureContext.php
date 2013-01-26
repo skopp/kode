@@ -44,7 +44,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function iStartANewGame() {
 		return array(
-			new Step\When('I press "New Game"')
+			new Step\When('I follow "Play 2 Learn"')
 		);
 	}
 
@@ -53,7 +53,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function iShouldSeeInitialGameBoard() {
 		return array(
-			new Step\Then('I should see "Kode Board"')
+			new Step\Then('I should see "Place statements"')
 		);
 	}
 
@@ -62,11 +62,18 @@ class FeatureContext extends MinkContext {
 	 */
 	public function iClickSomeCodeTiles() {
 		return array(
-			new Step\When('I press "Left"'),
-			new Step\When('I press "Down"'),
-			new Step\When('I press "Right"'),
-			new Step\When('I press "Up"')
+			new Step\When('I click "tile_left"'),
+			new Step\When('I click "tile_down"'),
+			new Step\When('I click "tile_right"'),
+			new Step\When('I click "tile_up"')
 		);
+	}
+
+	/**
+	 * @When /^(?:|I )click "(?P<element>[^"]*)"$/
+	 */
+	public function iClickElement($element) {
+		$this->getSession()->getPage()->findById($element)->click();
 	}
 
 	/**
@@ -74,7 +81,7 @@ class FeatureContext extends MinkContext {
 	 */
 	public function iRunTheProgram() {
 		return array(
-			new Step\When('I press "Run"')
+			new Step\When('I click "action_run"')
 		);
 	}
 

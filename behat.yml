@@ -9,4 +9,4 @@ default:
 svemir:
     extensions:
         Behat\MinkExtension\Extension:
-            base_url: http://kode.doma.com/app.php
+            base_url: http://kode.doma.com/app_dev.php
