@@ -77,6 +77,14 @@ class FeatureContext extends MinkContext {
 	}
 
 	/**
+	 * @Then /^I should see "([^"]*)" in the program$/
+	 */
+	public function iShouldSeeInTheProgram($tile) {
+		//$element = $this->getSession()->getPage()->findById('kode_board');
+		$this->assertSession()->elementContains('css', '#kode_board', $this->fixStepArgument($tile));
+	}
+
+	/**
 	 * @When /^I run the program$/
 	 */
 	public function iRunTheProgram() {
